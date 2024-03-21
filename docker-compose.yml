@@ -1,0 +1,9 @@
+version: '1'
+
+services:
+  back:
+    build: .
+    image: vpn-bot
+    container_name: telegram-vpn-bot
+    ports:
+      - "8080:8080"
