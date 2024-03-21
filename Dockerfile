@@ -1,4 +1,4 @@
-FROM maven:3.6.3-jdk-11-slim
+FROM gradle:8.6-jdk17
 WORKDIR /app
 COPY . .
 EXPOSE 8080
