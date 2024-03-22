@@ -24,9 +24,9 @@ jobs:
       - name: ls_la
         run: ls -la ../vpn.bot
       - name: ls_la2
-        run: ls -la ../../
+        run: ls -la ../../vpn.bot
       - name: Stop and remove containers, networks
-        run: docker-compose -f "../vpn.bot" down
+        run: docker-compose -f "../vpn.bot/docker-compose.yml" down
       - name: Remove unused data
         run: docker system prune -a -f
 
