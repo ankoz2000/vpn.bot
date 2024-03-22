@@ -38,14 +38,13 @@ jobs:
         with:
           envkey_DEBUG: false
           envkey_SOME_API_KEY: "123456abcdef"
-          USER_BOT_TOKEN: ${{ secrets.USER_BOT_TOKEN }}
-          paymentToken: ${{ secrets.paymentToken }}
-          shopId: ${{ secrets.shopId }}
-          testCard: ${{ secrets.testCard }}
-          shopArticleId: ${{ secrets.shopArticleId }}
-          OUTLINE: ${{ secrets.OUTLINE }}
-          some_other_variable: foobar
-          directory: ../../
+          envkey_USER_BOT_TOKEN: ${{ secrets.USER_BOT_TOKEN }}
+          envkey_paymentToken: ${{ secrets.paymentToken }}
+          envkey_shopId: ${{ secrets.shopId }}
+          envkey_testCard: ${{ secrets.testCard }}
+          envkey_shopArticleId: ${{ secrets.shopArticleId }}
+          envkey_OUTLINE: ${{ secrets.OUTLINE }}
+          directory: .
           file_name: .env
           fail_on_empty: false
           sort_keys: false
