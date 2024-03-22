@@ -7,3 +7,24 @@ services:
     container_name: telegram-vpn-bot
     ports:
       - "8080:8080"
+    secrets:
+      - USER_BOT_TOKEN
+      - paymentToken
+      - shopId
+      - testCard
+      - shopArticleId
+      - OUTLINE
+
+secrets:
+  - USER_BOT_TOKEN: 
+      USER_BOT_TOKEN: ${{ secrets.USER_BOT_TOKEN }}
+  - paymentToken: 
+      paymentToken: ${{ secrets.paymentToken }}
+  - shopId:
+      shopId: ${{ secrets.shopId }}
+  - testCard:
+      testCard: ${{ secrets.testCard }}
+  - shopArticleId:
+      shopArticleId: ${{ secrets.shopArticleId }}
+  - OUTLINE:
+      OUTLINE: ${{ secrets.OUTLINE }}
