@@ -22,9 +22,9 @@ jobs:
     needs: test
     steps:
       - name: ls_la
-        run: ls -la ..
+        run: ls -la ../vpn.bot
       - name: ls_la2
-        run: ls -la .
+        run: ls -la ../../
       - name: Stop and remove containers, networks
         run: docker-compose down
       - name: Remove unused data
