@@ -16,16 +16,10 @@ services:
       - OUTLINE
 
 secrets:
-  - USER_BOT_TOKEN: 
-      USER_BOT_TOKEN: ${{ secrets.USER_BOT_TOKEN }}
-  - paymentToken: 
-      paymentToken: ${{ secrets.paymentToken }}
-  - shopId:
-      shopId: ${{ secrets.shopId }}
-  - testCard:
-      testCard: ${{ secrets.testCard }}
-  - shopArticleId:
-      shopArticleId: ${{ secrets.shopArticleId }}
-  - OUTLINE:
-      OUTLINE: ${{ secrets.OUTLINE }}
+  - USER_BOT_TOKEN: ${{ secrets.USER_BOT_TOKEN }}
+  - paymentToken: ${{ secrets.paymentToken }}
+  - shopId: ${{ secrets.shopId }}
+  - testCard: ${{ secrets.testCard }}
+  - shopArticleId: ${{ secrets.shopArticleId }}
+  - OUTLINE: ${{ secrets.OUTLINE }}
   
