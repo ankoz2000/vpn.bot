@@ -45,7 +45,7 @@ jobs:
           shopArticleId: ${{ secrets.shopArticleId }}
           OUTLINE: ${{ secrets.OUTLINE }}
           some_other_variable: foobar
-          directory: ../
+          directory: ../../src
           file_name: .env
           fail_on_empty: false
           sort_keys: false
