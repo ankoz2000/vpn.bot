@@ -16,7 +16,8 @@ jobs:
           distribution: 'temurin'
           cache: gradle
       - name: run tests
-        run: gradle test
+        run: gradle tes
+ 
   prepare-environment:
     runs-on: self-hosted
     needs: test
@@ -32,6 +33,22 @@ jobs:
     runs-on: self-hosted
     needs: prepare-environment
     steps:
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_DEBUG: false
+          envkey_SOME_API_KEY: "123456abcdef"
+          USER_BOT_TOKEN: ${{ secrets.USER_BOT_TOKEN }}
+          paymentToken: ${{ secrets.paymentToken }}
+          shopId: ${{ secrets.shopId }}
+          testCard: ${{ secrets.testCard }}
+          shopArticleId: ${{ secrets.shopArticleId }}
+          OUTLINE: ${{ secrets.OUTLINE }}
+          some_other_variable: foobar
+          directory: ../
+          file_name: .env
+          fail_on_empty: false
+          sort_keys: false
       - name: checkout repo
         uses: actions/checkout@v3
       - name: docker-compose
