@@ -21,12 +21,12 @@ jobs:
     runs-on: self-hosted
     needs: test
     steps:
-      - name: ls_la
-        run: ls -la ../vpn.bot
-      - name: ls_la2
-        run: ls -la ../../vpn.bot
+      - name: checkout repo
+        uses: actions/checkout@v3
       - name: Stop and remove containers, networks
-        run: docker-compose -f "../vpn.bot/docker-compose.yml" down
+        run: docker-compose down
+      - name: Stop and remove containers, networks
+        run: docker rm -vf $(docker ps -aq)
       - name: Remove unused data
         run: docker system prune -a -f
 
