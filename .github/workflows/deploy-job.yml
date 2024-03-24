@@ -16,21 +16,47 @@ jobs:
           distribution: 'temurin'
           cache: gradle
       - name: run tests
-        run: gradle test
+        run: gradle tes
+ 
   prepare-environment:
     runs-on: self-hosted
     needs: test
     steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
       - name: Stop and remove containers, networks
-        run: docker-compose -f "docker-compose.yml" down
+        run: docker-compose down
       - name: Remove unused data
         run: docker system prune -a -f
+
   deploy:
     runs-on: self-hosted
     needs: prepare-environment
     steps:
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_DEBUG: false
+          envkey_SOME_API_KEY: "123456abcdef"
+          envkey_USER_BOT_TOKEN: ${{ secrets.USER_BOT_TOKEN }}
+          envkey_paymentToken: ${{ secrets.paymentToken }}
+          envkey_shopId: ${{ secrets.shopId }}
+          envkey_testCard: ${{ secrets.testCard }}
+          envkey_shopArticleId: ${{ secrets.shopArticleId }}
+          envkey_OUTLINE: ${{ secrets.OUTLINE }}
+          directory: ../../
+          file_name: .env
+          fail_on_empty: false
+          sort_keys: false
       - name: checkout repo
         uses: actions/checkout@v3
       - name: docker-compose
-        run: docker-compose -f "../docker-compose.yml" up -d
+        run: docker-compose --env-file .env up -d
+        env:
+          USER_BOT_TOKEN: ${{ secrets.USER_BOT_TOKEN }}
+          paymentToken: ${{ secrets.paymentToken }}
+          shopId: ${{ secrets.shopId }}
+          testCard: ${{ secrets.testCard }}
+          shopArticleId: ${{ secrets.shopArticleId }}
+          OUTLINE: ${{ secrets.OUTLINE }}
 
