@@ -44,14 +44,14 @@ jobs:
           envkey_testCard: ${{ secrets.testCard }}
           envkey_shopArticleId: ${{ secrets.shopArticleId }}
           envkey_OUTLINE: ${{ secrets.OUTLINE }}
-          directory: ../../vpn.bot/config/
+          directory: ../../vpn.bot/vpn.bot/config/
           file_name: app.config
           fail_on_empty: false
           sort_keys: false
       - name: checkout repo
         uses: actions/checkout@v3
       - name: docker-compose
-        run: docker-compose --env-file /config/app.config up -d
+        run: docker-compose --env-file /vpn.bot/vpn.bot/config/app.config up -d
         env:
           USER_BOT_TOKEN: ${{ secrets.USER_BOT_TOKEN }}
           paymentToken: ${{ secrets.paymentToken }}
