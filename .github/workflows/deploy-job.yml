@@ -44,7 +44,7 @@ jobs:
           envkey_testCard: ${{ secrets.testCard }}
           envkey_shopArticleId: ${{ secrets.shopArticleId }}
           envkey_OUTLINE: ${{ secrets.OUTLINE }}
-          directory: ../../
+          directory: ../../_work/
           file_name: .env
           fail_on_empty: false
           sort_keys: false
