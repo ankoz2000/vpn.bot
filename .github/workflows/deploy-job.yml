@@ -51,7 +51,7 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v3
       - name: docker-compose
-        run: docker-compose --env-file .env up -d
+        run: docker-compose --env-file /app/config/app.config up -d
         env:
           USER_BOT_TOKEN: ${{ secrets.USER_BOT_TOKEN }}
           paymentToken: ${{ secrets.paymentToken }}
