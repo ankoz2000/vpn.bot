@@ -44,7 +44,7 @@ jobs:
           envkey_testCard: ${{ secrets.testCard }}
           envkey_shopArticleId: ${{ secrets.shopArticleId }}
           envkey_OUTLINE: ${{ secrets.OUTLINE }}
-          directory: ../../app/config/
+          directory: ../../vpn.bot/vpn.bot/app/config/
           file_name: app.config
           fail_on_empty: false
           sort_keys: false
