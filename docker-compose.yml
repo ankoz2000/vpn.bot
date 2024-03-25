@@ -11,3 +11,4 @@ services:
       - ../../.env
     extra_hosts:
       - "outline:$OUTLINE_URI"
+      - "host.docker.internal:host-gateway"
