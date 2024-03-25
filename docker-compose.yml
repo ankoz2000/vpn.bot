@@ -10,4 +10,4 @@ services:
     env_file:
       - ../../.env
     extra_hosts:
-      - "host.docker.internal:localhost"
+      - "outline:$OUTLINE"
