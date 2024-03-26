@@ -25,9 +25,7 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v3
       - name: Stop and remove containers, networks
-        run: docker-compose down
-      - name: Remove unused data
-        run: docker system prune -a -f
+        run: docker stop $(docker ps -q --filter ancestor=telegram-vpn-bot )
 
   deploy:
     runs-on: self-hosted
