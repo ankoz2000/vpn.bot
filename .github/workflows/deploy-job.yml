@@ -25,7 +25,7 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v3
       - name: Stop and remove containers, networks
-        run: docker stop container $(docker ps -q --filter ancestor=telegram-vpn-bot )
+        run: docker stop $(docker ps -q --filter ancestor=telegram-vpn-bot )
 
   deploy:
     runs-on: self-hosted
