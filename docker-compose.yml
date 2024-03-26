@@ -9,6 +9,3 @@ services:
       - "8080:8080"
     env_file:
       - ../../.env
-    extra_hosts:
-      - "outline:$OUTLINE_URI"
-      - "host.docker.internal:host-gateway"
